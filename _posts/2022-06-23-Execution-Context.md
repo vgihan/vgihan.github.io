@@ -5,6 +5,7 @@ author: vgihan
 description: study JavaScript's Execution Context
 tags: [JavaScript, execution-context, scope]
 categories: [JavaScript]
+published: true
 extensions:
   preset: gfm
 ---
