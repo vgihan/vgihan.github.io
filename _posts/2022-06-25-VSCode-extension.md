@@ -3,8 +3,8 @@ layout: post
 title: VSCode Extension 만들기
 author: vgihan
 description: study Cross Origin Resource Sharing
-tags: [vscode, extension, frontend]
-categories: [extension]
+tags: [VSCode, Extension, frontend]
+categories: [VSCode]
 published: true
 extensions:
   preset: gfm
