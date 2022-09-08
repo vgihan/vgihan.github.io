@@ -10,19 +10,17 @@ extensions:
   preset: gfm
 ---
 
-# icicle chart transition
-
 icicle chart 다음 목표는 transition을 넣는 것이다. 클릭한 블럭만 transition을 넣는 것이 아니라, 다른 블럭도 함께 움직이는 transition이라 생각하기가 쉽지 않다.
 
 **Node vs Selection**
 
 transition을 부여하기 위해선, Node와 Selection을 구별할 줄 알아야한다. Node는 hierarchy 함수를 통해 데이터를 갖는 객체이고, Selection은 해당 데이터를 통해 실질적으로 눈에 보여지는 element 들이다. 그렇기 때문에, transition은 Node가 아니라 Selection에 부여할 수 있다.
 
-![Selection](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/68fb60e5-636a-4c2c-b2fa-0693e1bd86be/Untitled.png)
+![Selection](https://user-images.githubusercontent.com/49841765/189051611-3c81e3e4-53a6-4647-a888-e192984581f9.png)
 
 Selection
 
-![Node](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd9480f5-1e9e-43f2-a944-6eef0c23e490/Untitled.png)
+![Node](https://user-images.githubusercontent.com/49841765/189051831-bd633dc5-8178-4243-8c04-5a737dcc2f8e.png)
 
 Node
 
@@ -38,13 +36,13 @@ githru에서 보여지는 icicle chart transition을 주기 위해선, click eve
 
 HierarchyRectangularNode는 차트를 구성하는 element의 각 좌표 값을 제공한다. 하지만, HierarchyRectangularNode의 값이 수정된다고 해서 바로 결과가 View에 반영되진 않는다. HierarchyRectangularNode의 데이터를 수정하고, transition과 attr를 통해 View에 반영하는 작업을 거쳐야 비로소 View의 변화가 일어난다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/84f8ef6b-a49e-4ed3-9e73-ba05c450c431/Untitled.png)
+![image](https://user-images.githubusercontent.com/49841765/189051920-075c5997-3119-4081-8fa4-d851475cb6d5.png)
 
 **가장 중요한 건 좌표 수정 !**
 
 이번 transition을 적용하는 데 있어서 가장 중요한 건 결국 좌표 값 계산이다. zoom-in 시 결정되는 결과의 좌표값을 계산해서 transition만 적용시켜주면 되기 때문이다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/423022b6-a17c-4fca-b1ca-01c77aa3448a/Untitled.png)
+![image](https://user-images.githubusercontent.com/49841765/189051976-e1554ea0-efda-4d76-bf6c-61db42883e3e.png)
 
 **좌표 수정 시 주의할 점**
 
@@ -83,7 +81,7 @@ d.y0 = d.y0 - y0;
 
 height 에 관여하는 좌표는 x0, x1 이다. 적절한 x0, x1을 계산하여 transform y, height를 구해보자. 아래 icicle chart 에서 `src/2` rect를 클릭한다고 가정하자. 그러면, `src/2` `transition/transition.js` `util/options.js` 3개의 rect가 svg를 꽉 채울 것이다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cee19eb5-df9d-441d-880a-d4b2ee4d2c7e/Untitled.png)
+![image](https://user-images.githubusercontent.com/49841765/189052130-5b9c9606-cc97-4361-87b6-caa79b7cbf03.png)
 
 편의를 위해 `src/2` 를 1번 블록, `transition/transition.js` 를 2번 블록, `util/options.js` 를 3번 블록이라하자.
 
